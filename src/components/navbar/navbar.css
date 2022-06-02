@@ -1,0 +1,32 @@
+
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav--title {
+    font-size: xx-large;
+    margin: 1rem;
+    color: var(--primary-color);
+}
+
+.btn {
+    padding: 8px 1rem;
+    font-size: large;
+    border-radius: 1rem;
+    background-color: var(--login-color);
+    border: none;
+    color: var(--white-color);
+  }
+
+  .btn:hover {
+      border: 1px solid var(--primary-color);
+  }
+
+  .link--item {
+      text-decoration: none;
+  }

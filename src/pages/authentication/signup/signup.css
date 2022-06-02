@@ -1,0 +1,33 @@
+
+
+.signUp-container {
+    display: grid;
+    grid-template-areas: 'navbar'
+                          'mainbar';
+    grid-template-rows: 5rem 1fr;
+    height: 100vh;
+}
+
+ .main-container {
+    grid-area: mainbar;
+}
+
+  .signup-form-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+}
+
+.input__label {
+    font-size: large;
+}
+
+.form-data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-row-gap: 1rem;
+    row-gap: 2rem;
+    
+} 
+

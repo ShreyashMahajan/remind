@@ -1,0 +1,41 @@
+
+
+.btn--start {
+    background-color: var(--primary-color);
+    font-weight: bold;
+}
+
+.landingPage-mainbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.hero__img {
+    box-sizing: border-box;
+    max-width: 20rem;
+    flex-grow: 1;
+    height: 30rem;
+}
+
+.hero-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 0;
+}
+
+.hero--title {
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.hero--sub-title {
+    font-size: large;
+    font-weight: bold;
+    margin: 8px;
+}
+

@@ -1,0 +1,49 @@
+
+
+.filter-container {
+    border: 1px solid var(--text-color);
+    padding: 1rem;
+}
+
+.filter--title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter--title {
+   font-size: large;
+}
+
+.sort-box {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.sort--title {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.input-container {
+    display: flex;
+    row-gap: 1rem;
+    
+}
+
+.add-tag {
+    width: 5rem;
+}
+
+.btn-add {
+    background-color: var(--primary-color);
+    padding: 3px;
+    border-radius: 8px;
+    margin-left: 1rem;
+}
+
+.addTag-container {
+    margin-top: 1rem;
+}
