@@ -1,0 +1,57 @@
+
+
+.notecard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 17rem;
+  
+   row-gap: 1.5rem;
+   border: 1px solid var(--text-color);
+   padding: 1rem;
+   border-radius: 8px;
+   height: fit-content;
+}
+
+.notecard--heading {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.notecard--title {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.note--icon {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.specification--item {
+    background-color: var(--primary-color);
+    padding: 8px;
+    margin: 2px;
+}
+
+.notecard-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.notecard--date {
+    padding: 5px;
+}
+
+.note--icon {
+    padding: 2px;
+}
+
+.note--icon:hover {
+    background-color: rgb(204, 204, 204);
+}
+
+

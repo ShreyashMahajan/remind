@@ -1,0 +1,32 @@
+
+
+.sidebar-list {
+    list-style-type: none;
+    padding: 0;
+   
+}
+
+.list--item {
+    font-size: large;
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem;
+    align-items: center;
+    text-decoration: none;
+}
+
+.list--item:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.list--icon {
+    margin-right: 1rem;
+}
+
+.navlink {
+    text-decoration: none;
+    color: var(--text-color);
+}
