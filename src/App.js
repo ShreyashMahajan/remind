@@ -6,7 +6,7 @@ import { SignUp } from "./pages/authentication/signup/signup";
 import { Home } from "./pages/home/home";
 import { LandingPage } from "./pages/landingPage/landingPage";
 import { Trash } from "./pages/trash/trash";
-
+import Mockman from "mockman-js";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       {/* <Trash />  */}
       {/* <Archive /> */}
       {/* <Login /> */}
-     
+      
       <Routes>
         <Route path='/landing' element={<LandingPage />} />
         <Route path='/' element={<Home />} />
@@ -24,6 +24,7 @@ function App() {
         <Route path="/archive" element={<Archive />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/mock" element={<Mockman />}/>
       </Routes>
     </div>
   );

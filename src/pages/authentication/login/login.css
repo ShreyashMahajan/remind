@@ -36,7 +36,7 @@
 .form-container {
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 8px;
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 5px  5px 10px var(--text-color);
@@ -45,9 +45,10 @@
 }
 
 .input-data {
-    padding: 1rem;
+    padding: 8px;
     border: none;
-    border-bottom: 2px solid var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+    width: 90%;
    
 }
 

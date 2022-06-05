@@ -44,7 +44,7 @@ export const createNoteHandler = function (schema, request) {
         }
       );
     }
-    const { note } = JSON.parse(request.requestBody);
+    const  note  = JSON.parse(request.requestBody);
     if (!note.tags) {
       user.notes.push({ ...note, _id: uuid(), tags: [] });
     } else {
@@ -113,7 +113,7 @@ export const updateNoteHandler = function (schema, request) {
         }
       );
     }
-    const { note } = JSON.parse(request.requestBody);
+    const  note  = JSON.parse(request.requestBody);
     const { noteId } = request.params;
     const noteIndex = user.notes.findIndex((note) => note._id === noteId);
     user.notes[noteIndex] = { ...user.notes[noteIndex], ...note };
