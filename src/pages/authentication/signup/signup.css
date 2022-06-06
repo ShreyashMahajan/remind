@@ -25,9 +25,9 @@
 .form-data-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     grid-row-gap: 1rem;
-    row-gap: 2rem;
+    row-gap: 1rem;
     
 } 
 

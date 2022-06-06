@@ -49,20 +49,21 @@
 .color-icon {
     height: 2.5rem;
     width: 2.5rem;
+    
 }
 
-.color-blue {
-    color: blue;
+.color-sky {
+    color: #67e8f9;
 }
 
 .color-yellow {
-    color: yellow;
+    color: #fde047;
 }
 
 .color-red {
-    color: red;
+    color: #f87171;
 }
 
 .color-green {
-    color: green;
+    color: #86efac;
 }
