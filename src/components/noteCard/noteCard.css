@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 17rem;
+    width: 19rem;
   
    row-gap: 1.5rem;
    border: 1px solid var(--text-color);
@@ -16,6 +16,10 @@
 .notecard--heading {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+}
+
+.notecard--content {
     width: 100%;
 }
 

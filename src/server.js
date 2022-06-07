@@ -3,6 +3,9 @@ import {
   deleteFromArchivesHandler,
   getAllArchivedNotesHandler,
   restoreFromArchivesHandler,
+  updateNoteInArchivesHandler,
+  moveArchivedToTrashHandler,
+  updateArchivesDeleteLabel,
 } from "./backend/controllers/ArchiveController";
 import {
   loginHandler,
@@ -13,12 +16,14 @@ import {
   createNoteHandler,
   deleteNoteHandler,
   getAllNotesHandler,
-  trashNoteHandler,
   updateNoteHandler,
+  moveNoteToTrashHandler,
+  updateNotePinHandler,
+  updateNoteDeleteLabel,
 } from "./backend/controllers/NotesController";
 import {
+  getAllTrashedNotesHandler,
   deleteFromTrashHandler,
-  getAllTrashNotesHandler,
   restoreFromTrashHandler,
 } from "./backend/controllers/TrashController";
 import { users } from "./backend/db/users";
@@ -59,10 +64,13 @@ export function makeServer({ environment = "development" } = {}) {
       this.post("/notes/:noteId", updateNoteHandler.bind(this));
       this.delete("/notes/:noteId", deleteNoteHandler.bind(this));
       this.post("/notes/archives/:noteId", archiveNoteHandler.bind(this));
-      this.post("/notes/trash/:noteId", trashNoteHandler.bind(this));
+      this.post("/notes/trash/:noteId", moveNoteToTrashHandler.bind(this));
+      this.post("/notes/pin/:noteId", updateNotePinHandler.bind(this));
+      this.post("/notes/updatetags", updateNoteDeleteLabel.bind(this));
 
       // archive routes (private)
       this.get("/archives", getAllArchivedNotesHandler.bind(this));
+      this.post("/archives/:noteId", updateNoteInArchivesHandler.bind(this));
       this.post(
         "/archives/restore/:noteId",
         restoreFromArchivesHandler.bind(this)
@@ -71,8 +79,14 @@ export function makeServer({ environment = "development" } = {}) {
         "/archives/delete/:noteId",
         deleteFromArchivesHandler.bind(this)
       );
+      this.post(
+        "/archives/trash/:noteId",
+        moveArchivedToTrashHandler.bind(this)
+      );
+      this.post("/archives/updatetags", updateArchivesDeleteLabel.bind(this));
+
       // trash routes (private)
-      this.get("/trash", getAllTrashNotesHandler.bind(this));
+      this.get("/trash", getAllTrashedNotesHandler.bind(this));
       this.post("/trash/restore/:noteId", restoreFromTrashHandler.bind(this));
       this.delete("/trash/delete/:noteId", deleteFromTrashHandler.bind(this));
     },

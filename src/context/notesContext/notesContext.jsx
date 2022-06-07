@@ -4,6 +4,7 @@ import { addNewNoteService, getNotedataService, transferNoteToTrashService, upda
 import { useAuth } from "../authContext/authContext";
 
 
+
 const NotesContext = createContext();
 
 const NoteProvider = ({ children }) => {
@@ -14,6 +15,8 @@ const NoteProvider = ({ children }) => {
     const [noteState, noteDispatch] = useReducer(
         notesReducer, initialNote
     );
+
+
 
     useEffect(() => {
         if (isUserLoggedIn) {
@@ -73,15 +76,17 @@ const NoteProvider = ({ children }) => {
         }
     }
 
-    const moveNoteToTrash = async (noteData) => {
-        try {
-            const response = await transferNoteToTrashService(noteData);
-            setNoteList(response.data.notes);
-        }
-        catch (error) {
-            console.error('error while deleting note', error);
-        }
-    }
+    // const moveNoteToTrash = async (noteData) => {
+    //     try {
+    //         const response = await transferNoteToTrashService(noteData);
+    //         console.log('from note trash', response);
+    //         setNoteList(response.data.notes);
+
+    //     }
+    //     catch (error) {
+    //         console.error('error while deleting note', error);
+    //     }
+    // }
 
     return (
         <NotesContext.Provider value={{
@@ -94,7 +99,7 @@ const NoteProvider = ({ children }) => {
             setNoteList,
             noteTags,
             setNoteTags,
-            moveNoteToTrash,
+
         }} >
             {children}
         </NotesContext.Provider>
