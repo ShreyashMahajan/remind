@@ -3,6 +3,7 @@ import { NoteCard } from '../../components/noteCard/noteCard';
 import { PinnedCard } from '../../components/pinnedCard/pinnedCard';
 import { Sidebar } from '../../components/sidebar/sidebar';
 import { TextEditor } from '../../components/textEditor/textEditor';
+import { useFilter } from '../../context/filterContext/filterContext';
 import { useNotes } from '../../context/notesContext/notesContext';
 import '../home/home.css';
 
@@ -11,7 +12,8 @@ import '../home/home.css';
 
 export const Home = () => {
 
-    const { noteList } = useNotes();
+
+    const { filteredNoteList } = useFilter();
 
     return (
         <div className='layout-wrapper home-container'>
@@ -25,7 +27,7 @@ export const Home = () => {
                         <h1 className='note__heading'>Notes</h1>
                         <div className='notecard-wrapper'>
                             {
-                                noteList.map(noteItem => !noteItem.pinStatus && <NoteCard key={noteItem._id} noteInfo={noteItem} />)
+                                filteredNoteList.map(noteItem => !noteItem.pinStatus && <NoteCard key={noteItem._id} noteInfo={noteItem} />)
                             }
 
                         </div>
@@ -34,7 +36,7 @@ export const Home = () => {
                         <h1 className='note__heading'>Pinned Notes</h1>
                         <div className='notecard-wrapper'>
                             {
-                                noteList.map(noteItem => noteItem.pinStatus && <PinnedCard key={noteItem._id} noteInfo={noteItem} />)
+                                filteredNoteList.map(noteItem => noteItem.pinStatus && <PinnedCard key={noteItem._id} noteInfo={noteItem} />)
                             }
 
                         </div>

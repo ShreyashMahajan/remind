@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
-import { initialNote, notesReducer } from "../../reducers/notesReducer";
-import { addNewNoteService, getNotedataService, transferNoteToTrashService, updateNoteService } from "../../services/notes/noteServices";
+import { createContext, useContext, useEffect, useState } from "react";
+import { addNewNoteService, getNotedataService, updateNoteService } from "../../services/notes/noteServices";
 import { useAuth } from "../authContext/authContext";
 
 
@@ -12,9 +11,6 @@ const NoteProvider = ({ children }) => {
     const { isUserLoggedIn } = useAuth();
     const [noteList, setNoteList] = useState([]);
     const [noteTags, setNoteTags] = useState([]);
-    const [noteState, noteDispatch] = useReducer(
-        notesReducer, initialNote
-    );
 
 
 
@@ -76,25 +72,12 @@ const NoteProvider = ({ children }) => {
         }
     }
 
-    // const moveNoteToTrash = async (noteData) => {
-    //     try {
-    //         const response = await transferNoteToTrashService(noteData);
-    //         console.log('from note trash', response);
-    //         setNoteList(response.data.notes);
-
-    //     }
-    //     catch (error) {
-    //         console.error('error while deleting note', error);
-    //     }
-    // }
 
     return (
         <NotesContext.Provider value={{
             updateNotePinStatus,
             addNewNote,
             updateNoteInfo,
-            noteState,
-            noteDispatch,
             noteList,
             setNoteList,
             noteTags,
