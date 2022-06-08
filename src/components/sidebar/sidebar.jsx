@@ -8,13 +8,13 @@ export const Sidebar = ({ showFilter }) => {
     return (
         <aside className='layout-sidebar sidebar-container'>
             <ul className='sidebar-list'>
-                <NavLink to='/' className='navlink' >
+                <NavLink to='/home' className='navlink' >
                     <li className='list--item'>
                         <FaHome className='list--icon' />
                         Home
                     </li>
                 </NavLink>
-                <NavLink to='/landing' className='navlink'>
+                <NavLink to='/' className='navlink'>
                     <li className='list--item'>
                         <FaRegStickyNote className='list--icon' />
                         Landing

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router";
+import { useLocation } from "react-router-dom";
 import { authReducer } from "../../reducers/authReducer";
 
 const initialState = { isUserLoggedIn: false, token: null };
@@ -12,6 +13,8 @@ const AuthProvider = ({ children }) => {
     const [authState, authDispatch] = useReducer(authReducer, initialState);
     const { isUserLoggedIn } = authState;
     const navigate = useNavigate();
+    const location = useLocation();
+    let pathRoute = location.state?.from?.pathname || '/';
 
     const login = async ({ email, password }) => {
         try {
@@ -19,7 +22,7 @@ const AuthProvider = ({ children }) => {
 
             localStorage.setItem('user', JSON.stringify(data));
             authDispatch({ type: 'LOGIN', payload: data });
-            navigate('/');
+            navigate(pathRoute, { replace: true });
         }
         catch (error) {
             console.log(error);
@@ -33,7 +36,7 @@ const AuthProvider = ({ children }) => {
 
             localStorage.setItem('user', JSON.stringify(data));
             authDispatch({ type: 'SIGNUP', payload: data });
-            navigate('/trash');
+            navigate(pathRoute, { replace: true });
         }
         catch (error) {
             console.error(error);
@@ -44,7 +47,7 @@ const AuthProvider = ({ children }) => {
         try {
             localStorage.removeItem('user');
             authDispatch({ type: 'LOGOUT' });
-            navigate('/archive')
+            navigate('/')
 
         }
         catch (error) {
