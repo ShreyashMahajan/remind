@@ -1,48 +1,39 @@
-import '../textEditor/textEditor.css';
+import { useState } from 'react';
 import { IoColorPaletteOutline, IoAddCircleOutline, IoArchiveOutline, IoTrashOutline } from "react-icons/io5";
 import { VscCircleLargeFilled } from "react-icons/vsc";
-import { useState } from 'react';
 import { useNotes } from '../../context/notesContext/notesContext';
+import '../updateNoteEditor/updateNoteEditor.css';
 
-const initialNotedata = {
-    color: '',
-    editorContent: '',
-    priorityDetails: '',
-    tags: '',
-    title: '',
-    pinStatus: false,
-    dateAddition: '',
-}
-
-export const TextEditor = () => {
-    let [noteData, setNoteData] = useState(initialNotedata);
+export const UpdateNoteEditor = (props) => {
+    const { currentNote, setShowEditor } = props;
     const [showColorPallete, setShowColorPallete] = useState(false);
-    const { addNewNote } = useNotes();
+    const [updateNote, setUpdateNote] = useState(currentNote);
+    const { updateNoteInfo } = useNotes();
 
     const onChangeHandler = (e) => {
-        setNoteData({ ...noteData, [e.target.name]: e.target.value });
+        setUpdateNote({ ...updateNote, [e.target.name]: e.target.value });
     }
 
     const addColor = (inputColor) => {
-        setNoteData({ ...noteData, color: inputColor });
+        setUpdateNote({ ...updateNote, color: inputColor });
     }
 
     const submit = (e) => {
         e.preventDefault();
-        noteData = { ...noteData, dateAddition: new Date().toLocaleString() }
-        console.log('noteString', noteData);
-        addNewNote(noteData);
+        updateNoteInfo(updateNote);
+        setShowEditor(false);
     }
+
     return (
-        <div className='editor-container' style={{ backgroundColor: noteData.color }}>
-            <input type="text" className='note-title' placeholder='Title' name='title' onChange={(e) => onChangeHandler(e)} />
-            <textarea className='note-content' name='editorContent' role='textbox' cols='50' placeholder=' Write here ...' onChange={(e) => onChangeHandler(e)} >
+        <div className='editor-container' >
+            <input type="text" className='note-title' placeholder='Title' name='title' defaultValue={updateNote.title} onChange={(e) => onChangeHandler(e)} />
+            <textarea className='note-content' name='editorContent' role='textbox' cols='50' defaultValue={updateNote.editorContent} onChange={(e) => onChangeHandler(e)} >
 
             </textarea>
             <div className='note-specification'>
                 <div className='tag-container'>
                     <label htmlFor="tags">Tag : </label>
-                    <select id='tags' name='tags' onChange={(e) => onChangeHandler(e)}>
+                    <select id='tags' name='tags' onChange={(e) => onChangeHandler(e)} defaultValue={updateNote.tags} >
                         <option value="">Choose here</option>
                         <option value='event'>Event</option>
                         <option value="office">Office</option>
@@ -52,7 +43,7 @@ export const TextEditor = () => {
                 </div>
                 <div className='priority-container'>
                     <label htmlFor="priority">Priority :</label>
-                    <select id='priority' name='priorityDetails' onChange={(e) => onChangeHandler(e)}>
+                    <select id='priority' name='priorityDetails' onChange={(e) => onChangeHandler(e)} defaultValue={updateNote.priorityDetails} >
                         <option value="">Choose here</option>
                         <option value='low'>Low</option>
                         <option value="medium">Medium</option>
