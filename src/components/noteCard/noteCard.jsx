@@ -1,14 +1,18 @@
 import '../noteCard/noteCard.css';
-import { BsPinAngle } from "react-icons/bs";
+import { BsPinAngle, BsTrash } from "react-icons/bs";
 import { FiEdit, FiArchive } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import { useNotes } from '../../context/notesContext/notesContext';
+import { useTrash } from '../../context/trashContext/trashContext';
+import { useArchive } from '../../context/archiveContext/archiveContext';
 
 
 
 export const NoteCard = (props) => {
     const { noteInfo } = props;
     const { updateNotePinStatus, moveNoteToTrash, updateNoteInfo } = useNotes();
+    const { transferToTrash } = useTrash();
+    const { addNoteToArchive } = useArchive();
     return (
         <div className='notecard-container' style={{ backgroundColor: noteInfo.color }}>
             <div className='notecard--heading'>
@@ -23,9 +27,11 @@ export const NoteCard = (props) => {
             <div className='notecard-section'>
                 <p className='notecard--date'>Created on 01/02/2020</p>
                 <div className="notecard--icons">
-                    <FiEdit className='note--icon' />
-                    <FiArchive className='note--icon' />
-                    <MdDelete className='note--icon' onClick={() => moveNoteToTrash(noteInfo)} />
+                    <MdDelete className='note--icon' title='trash' onClick={() => transferToTrash(noteInfo)} />
+                    {/* <BsTrash className='note--icon' title='trash' onClick={() => transferToTrash(noteInfo)} /> */}
+                    <FiEdit className='note--icon' title='edit' />
+                    <FiArchive className='note--icon' title='archive' onClick={() => addNoteToArchive(noteInfo)} />
+                    {/* <MdDelete className='note--icon' title='delete' onClick={() => moveNoteToTrash(noteInfo)} /> */}
                 </div>
             </div>
         </div>

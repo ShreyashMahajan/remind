@@ -6,6 +6,8 @@ import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/authContext/authContext";
 import { NoteProvider } from "./context/notesContext/notesContext";
+import { ArchiveProvider } from "./context/archiveContext/archiveContext";
+import { TrashProvider } from "./context/trashContext/trashContext";
 
 
 // Call make Server
@@ -16,8 +18,12 @@ ReactDOM.render(
     <BrowserRouter>
     <AuthProvider>
       <NoteProvider>
-      <App />
-      </NoteProvider>
+        <ArchiveProvider>
+          <TrashProvider>
+          <App />
+          </TrashProvider>
+        </ArchiveProvider>
+          </NoteProvider>
     </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
