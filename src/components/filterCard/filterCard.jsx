@@ -13,26 +13,26 @@ export const FilterCard = () => {
                 <div className='sort-box'>
                     <h3 className='sort--title'>Date</h3>
                     <div className='input-container'>
-                        <input id='newest-date' type='radio' name='date' checked={state.sortByDate === 'NEWEST_FIRST'} className='sort--type' onClick={() => dispatch({ type: 'SORT_BY_DATE', payload: 'NEWEST_FIRST' })} />
+                        <input id='newest-date' type='radio' name='date' defaultChecked={state.sortByDate === 'NEWEST_FIRST'} className='sort--type' onClick={() => dispatch({ type: 'SORT_BY_DATE', payload: 'NEWEST_FIRST' })} />
                         <label htmlFor="newest-date">Newest</label>
                     </div>
                     <div className="input-container">
-                        <input id='oldest-date' type='radio' name='date' checked={state.sortByDate === 'OLDEST_FIRST'} className='sort--type' onClick={() => dispatch({ type: 'SORT_BY_DATE', payload: 'OLDEST_FIRST' })} />
+                        <input id='oldest-date' type='radio' name='date' defaultChecked={state.sortByDate === 'OLDEST_FIRST'} className='sort--type' onClick={() => dispatch({ type: 'SORT_BY_DATE', payload: 'OLDEST_FIRST' })} />
                         <label htmlFor="oldest-date">Oldest</label>
                     </div>
                 </div>
                 <div className="sort-box">
                     <h3 className="sort--title">Priority</h3>
                     <div className='input-container'>
-                        <input id='low' type="radio" className='sort--type' checked={state.sortByPriority === 'low'} name='priority' onClick={() => dispatch({ type: 'SORT_BY_PRIORITY', payload: 'low' })} />
+                        <input id='low' type="radio" className='sort--type' defaultChecked={state.sortByPriority === 'low'} name='priority' onClick={() => dispatch({ type: 'SORT_BY_PRIORITY', payload: 'low' })} />
                         <label htmlFor="low">Low</label>
                     </div>
                     <div className='input-container'>
-                        <input id='medium' type="radio" className='sort--type' checked={state.sortByPriority === 'medium'} name='priority' onClick={() => dispatch({ type: 'SORT_BY_PRIORITY', payload: 'medium' })} />
+                        <input id='medium' type="radio" className='sort--type' defaultChecked={state.sortByPriority === 'medium'} name='priority' onClick={() => dispatch({ type: 'SORT_BY_PRIORITY', payload: 'medium' })} />
                         <label htmlFor="medium">Medium</label>
                     </div>
                     <div className='input-container'>
-                        <input id='high' type="radio" className='sort--type' checked={state.sortByPriority === 'high'} name='priority' onClick={() => dispatch({ type: 'SORT_BY_PRIORITY', payload: 'high' })} />
+                        <input id='high' type="radio" className='sort--type' defaultChecked={state.sortByPriority === 'high'} name='priority' onClick={() => dispatch({ type: 'SORT_BY_PRIORITY', payload: 'high' })} />
                         <label htmlFor="high">High</label>
                     </div>
                 </div>

@@ -1,13 +1,11 @@
 const filterByDate = (noteDataList, type) => {
     const newNoteList = [...noteDataList];
-    console.log(newNoteList)
+
     if (newNoteList.length !== 0) {
         switch (type) {
             case 'OLDEST_FIRST':
                 return newNoteList.sort((dateOne, dateSecond) => {
                     const finalDate = (new Date(dateOne.dateAddition)).getTime() - (new Date(dateSecond.dateAddition)).getTime();
-                    console.log('fdsdsds one', (new Date(dateOne.dateAddition)).getTime());
-                    console.log('fdsdsds two', (new Date(dateSecond.dateAddition)).getTime());
                     return finalDate;
                 });
             case 'NEWEST_FIRST':

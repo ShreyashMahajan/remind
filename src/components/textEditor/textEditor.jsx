@@ -30,7 +30,6 @@ export const TextEditor = () => {
     const submit = (e) => {
         e.preventDefault();
         noteData = { ...noteData, dateAddition: new Date().toLocaleString() }
-        console.log('noteString', noteData);
         addNewNote(noteData);
     }
     return (

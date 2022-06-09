@@ -7,21 +7,29 @@ import { Home } from "./pages/home/home";
 import { LandingPage } from "./pages/landingPage/landingPage";
 import { Trash } from "./pages/trash/trash";
 import Mockman from "mockman-js";
+import { RequiresAuth } from "./components/requireAuth/requireAuth";
 
 function App() {
   return (
     <div className="App">
-      {/* <LandingPage /> */}
-      {/* <Home /> */}
-      {/* <Trash />  */}
-      {/* <Archive /> */}
-      {/* <Login /> */}
       
       <Routes>
-        <Route path='/landing' element={<LandingPage />} />
-        <Route path='/' element={<Home />} />
-        <Route path="/trash" element={<Trash />} />
-        <Route path="/archive" element={<Archive />} />
+        <Route path='/' element={<LandingPage />} />
+        <Route path="/home" element={
+          <RequiresAuth>
+            <Home />
+          </RequiresAuth>
+        } />
+        <Route path="/trash" element={
+          <RequiresAuth>
+            <Trash />
+          </RequiresAuth>
+        } />
+        <Route path="/archive" element={
+          <RequiresAuth>
+            <Archive />
+          </RequiresAuth>
+        } />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/mock" element={<Mockman />}/>
